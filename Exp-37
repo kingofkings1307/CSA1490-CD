@@ -1,0 +1,45 @@
+%%
+
+((http)|(ftp))s?:\/\/[a-zA-Z0-9](.[a-z])+(.[a-zA-Z0-9+=?]*)* {printf("\nURL Valid\n");}
+
+.+ {printf("\nURL Invalid\n");}
+
+%%
+
+void main()
+
+{
+
+	printf("\nEnter URL : ");	yylex();
+
+	printf("\n");
+
+}
+
+int yywrap()
+
+{
+
+}
+
+output:
+
+Microsoft Windows [Version 10.0.18362.239]
+
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\PADMASRI>cd Documents
+
+C:\Users\PADMASRI\Documents>lex 37.l
+
+C:\Users\PADMASRI\Documents>gcc -o 37 lex.yy.c
+
+C:\Users\PADMASRI\Documents>37.exe 37.c
+
+Enter URL : https:\\www.sse.in
+
+URL Invalid
+
+https://www.sse.in
+
+URL Valid
