@@ -1,0 +1,42 @@
+%{
+int positive_no = 0, negative_no = 0;
+%}
+%%
+^[-][0-9]+ {negative_no++;
+			printf("negative number = %s\n",
+				yytext);} // negative number
+
+[0-9]+ {positive_no++;
+		printf("positive number = %s\n",
+				yytext);} // positive number	
+%%
+int yywrap(){}
+int main()											
+{
+yylex();
+printf ("number of positive numbers = %d,"
+		"number of negative numbers = %d\n",
+				positive_no, negative_no);
+return 0;
+}
+output:
+Microsoft Windows [Version 10.0.18362.239]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\PADMASRI>cd Documents
+
+C:\Users\PADMASRI\Documents>lex 36.l
+
+C:\Users\PADMASRI\Documents>gcc -o 36 lex.yy.c
+
+C:\Users\PADMASRI\Documents>36.exe 36.c
+-10
+negative number = -10
+
+20
+positive number = 20
+
+^Z
+number of positive numbers = 1,number of negative numbers = 1
+
+C:\Users\PADMASRI\Documents>
